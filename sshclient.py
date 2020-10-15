@@ -86,13 +86,6 @@ def save():
         pickle.dump(logins,pLogins)
         pLogins.close()
 
-        # Clear entries
-        eLogin.delete(0,tk.END)
-        eUsername.delete(0,tk.END)
-        eHost.delete(0,tk.END)
-        ePort.delete(0,tk.END)
-        cLogins.delete(0,tk.END)
-
         refresh()
     else:
         tk.messagebox.showerror(title="Error",message="Entry/Entries are empty")
@@ -117,9 +110,6 @@ def refresh():
 
     # Clear entries
     eLogin.delete(0,tk.END)
-    eUsername.delete(0,tk.END)
-    eHost.delete(0,tk.END)
-    ePort.delete(0,tk.END)
     cLogins.delete(0,tk.END)
 
 
