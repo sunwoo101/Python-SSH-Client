@@ -46,7 +46,7 @@ def connect():
 
     if platform == "Windows":
         tk.messagebox.showinfo(title="Connecting",message="Connecting... the connection window may start minimized")
-        os.system(f"cmd /k 'ssh {username}@{host} -p {port}'")
+        os.system(f"cmd /c start ssh {username}@{host} -p {port}")
     elif platform == "Darwin":
         tk.messagebox.showinfo(title="Connecting",message="Connecting... the connection window may start minimized")
         os.system(f"osascript -e 'tell app \"Terminal\"\n do script \"ssh {username}@{host} -p {port}\"\n end tell'")
@@ -82,7 +82,6 @@ def save():
     elif login != "" and username != "" and host != "" and port != "":
         # Save to file
         logins.append([login,username,host,port])
-        print(logins)
         pLogins = open("logins.JSON","wb")
         pickle.dump(logins,pLogins)
         pLogins.close()
@@ -134,7 +133,6 @@ def load():
     for i in lLogins:
         if str(lValue) == str(i):
             l = logins[a]
-            print(logins)
             username = l[1]
             host = l[2]
             port = l[3]
